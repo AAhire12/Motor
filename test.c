@@ -97,6 +97,8 @@ int main(void){
 
 
 void startAndStopPulse(){
+//Intensity of motors for pusle width modulation
+	int intensity;
 
 for (intensity = 0; intensity < 101; intensity++)
 		{
