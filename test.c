@@ -119,7 +119,7 @@ for (intensity = 0; intensity < 100; intensity++)
 
 
 		//Intensity of motors for pusle width modulation
-	int intensity;
+	
 
 for (intensity = 0; intensity < 20; intensity++)
 		{
