@@ -73,34 +73,12 @@ int main(void){
 		digitalWrite(Motor4Pin1, HIGH);
 		digitalWrite(Motor4Pin2, LOW);
 
-		startAndStopPulse();
-		
-	
+		// startAndStopPulse();
 
-		printf("Anti-clockwise\n");
-	//Setting direction of wheels
-		digitalWrite(Motor1Pin1, LOW);
-		digitalWrite(Motor1Pin2, HIGH);
-		digitalWrite(Motor2Pin1, LOW);
-		digitalWrite(Motor2Pin2, HIGH);
-		digitalWrite(Motor3Pin1, LOW);
-		digitalWrite(Motor3Pin2, HIGH);
-		digitalWrite(Motor4Pin1, LOW);
-		digitalWrite(Motor4Pin2, HIGH);
-
-		startAndStopPulse();
-
-
-	}
-	return 0;
-}
-
-
-void startAndStopPulse(){
 //Intensity of motors for pusle width modulation
 	int intensity;
 
-for (intensity = 0; intensity < 50; intensity++)
+for (intensity = 0; intensity < 100; intensity++)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor2Enable, intensity);
@@ -121,6 +99,83 @@ for (intensity = 0; intensity < 50; intensity++)
 		  softPwmWrite (Motor3Enable, intensity);
 		  softPwmWrite (Motor4Enable, intensity);
 		  delay (10);
+		}
+		delay(3000);
+
+	
+
+		printf("Anti-clockwise\n");
+	//Setting direction of wheels
+		digitalWrite(Motor1Pin1, LOW);
+		digitalWrite(Motor1Pin2, HIGH);
+		digitalWrite(Motor2Pin1, LOW);
+		digitalWrite(Motor2Pin2, HIGH);
+		digitalWrite(Motor3Pin1, LOW);
+		digitalWrite(Motor3Pin2, HIGH);
+		digitalWrite(Motor4Pin1, LOW);
+		digitalWrite(Motor4Pin2, HIGH);
+
+		// startAndStopPulse();
+
+
+		//Intensity of motors for pusle width modulation
+	int intensity;
+
+for (intensity = 0; intensity < 20; intensity++)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (1000) ;
+		}
+
+
+		
+		delay(3000);
+		
+		//Slow the motors down to a stop
+		for (intensity = 20; intensity >= 0; intensity--)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (1000);
+		}
+		delay(3000);
+
+
+	}
+	return 0;
+}
+
+
+void startAndStopPulse(){
+//Intensity of motors for pusle width modulation
+	int intensity;
+
+for (intensity = 0; intensity < 50; intensity++)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (1000) ;
+		}
+
+
+		
+		delay(3000);
+		
+		//Slow the motors down to a stop
+		for (intensity = 50; intensity >= 0; intensity--)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (1000);
 		}
 		delay(3000);
 
