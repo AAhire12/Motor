@@ -100,7 +100,7 @@ void startAndStopPulse(){
 //Intensity of motors for pusle width modulation
 	int intensity;
 
-for (intensity = 0; intensity < 101; intensity++)
+for (intensity = 0; intensity < 50; intensity++)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor2Enable, intensity);
@@ -114,7 +114,7 @@ for (intensity = 0; intensity < 101; intensity++)
 		delay(3000);
 		
 		//Slow the motors down to a stop
-		for (intensity = 100; intensity >= 0; intensity--)
+		for (intensity = 50; intensity >= 0; intensity--)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor2Enable, intensity);
