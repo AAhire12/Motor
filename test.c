@@ -1,18 +1,30 @@
 /**********************************************************************
-* Filename    : motor.c
-* Description : Controlling a motor.
-* Author      : Robot
-* E-mail      : support@sunfounder.com
-* website     : www.sunfounder.com
-* Update      : Cavon    2016/07/01
+* Filename    : Motor.c
+* Description : Controlling a motor with pulse width modulation 
+* Author      : Ankush Ahire 
+* E-mail      : aahire@mail.sfsu.edu
+Student ID: 920107107
 **********************************************************************/
+
 #include <wiringPi.h>
 #include <stdio.h>
 #include <softPwm.h>
 
-#define MotorPin1		13
-#define MotorPin2		14
-#define MotorEnable		12
+#define Motor4Pin1		13
+#define Motor4Pin2		14
+#define Motor4Enable	12
+#define Motor3Pin1		2
+#define Motor3Pin2		3
+#define Motor3Enable	26
+#define Motor2Pin1		4
+#define Motor2Pin2		5
+#define Motor2Enable	6
+#define Motor1Pin1		2
+#define Motor1Pin2		3
+#define Motor1Enable	0
+
+void startAndStopPulse();
+
 
 int main(void){
 	int i;
@@ -21,58 +33,93 @@ int main(void){
 		return 1; 
 	}
 	
-	pinMode(MotorPin1, OUTPUT);
-	pinMode(MotorPin2, OUTPUT);
-	pinMode(MotorEnable, OUTPUT);
-	softPwmCreate(MotorEnable,1,100);
+	//Initializing Pins  
+	pinMode(Motor1Pin1, OUTPUT);
+	pinMode(Motor1Pin2, OUTPUT);
+	pinMode(Motor1Enable, OUTPUT);
 
-	printf("\n");
-	printf("\n");
-	printf("========================================\n");
-	printf("|                Motor                 |\n");
-	printf("|    ------------------------------    |\n");
-	printf("|     Motor pin 1 connect to GPIO0     |\n");
-	printf("|     Motor pin 2 connect to GPIO1     |\n");
-	printf("|     Motor enable connect to GPIO3    |\n");
-	printf("|                                      |\n");
-	printf("|         Controlling a motor          |\n");
-	printf("|                                      |\n");
-	printf("|                            SunFounder|\n");
-	printf("========================================\n");
-	printf("\n");
-	printf("\n");
+	pinMode(Motor2Pin1, OUTPUT);
+	pinMode(Motor2Pin2, OUTPUT);
+	pinMode(Motor2Enable, OUTPUT);
+	
+	pinMode(Motor3Pin1, OUTPUT);
+	pinMode(Motor3Pin2, OUTPUT);
+	pinMode(Motor3Enable, OUTPUT);
+	
+	pinMode(Motor4Pin1, OUTPUT);
+	pinMode(Motor4Pin2, OUTPUT);
+	pinMode(Motor4Enable, OUTPUT);
+	
+	softPwmCreate(Motor1Enable,1,100);
+	softPwmCreate(Motor2Enable,1,100);
+	softPwmCreate(Motor3Enable,1,100);
+	softPwmCreate(Motor4Enable,1,100);
+
+
+	//Intensity of motors for pusle width modulation
+	int intensity;
+
 
 	while(1){
 		printf("Clockwise\n");
 		
-		// digitalWrite(MotorEnable, HIGH);
-		softPwmWrite(MotorEnable,50);
-		digitalWrite(MotorPin1, HIGH);
-		digitalWrite(MotorPin2, LOW);
-		for(i=0;i<3;i++){
-			delay(1000);
-		}
+		//Setting direction of wheels
+		digitalWrite(Motor1Pin1, HIGH);
+		digitalWrite(Motor1Pin2, LOW);
+		digitalWrite(Motor2Pin1, HIGH);
+		digitalWrite(Motor2Pin2, LOW);
+		digitalWrite(Motor3Pin1, HIGH);
+		digitalWrite(Motor3Pin2, LOW);
+		digitalWrite(Motor4Pin1, HIGH);
+		digitalWrite(Motor4Pin2, LOW);
 
-		printf("Stop\n");
-		digitalWrite(MotorEnable, LOW);
-		for(i=0;i<3;i++){
-			delay(1000);
-		}
+		startAndStopPulse();
+		
+	
 
 		printf("Anti-clockwise\n");
-	//	digitalWrite(MotorEnable, HIGH);
-		softPwmWrite(MotorEnable,20);
-		digitalWrite(MotorPin1, LOW);
-		digitalWrite(MotorPin2, HIGH);
-		for(i=0;i<3;i++){
-			delay(1000);
-		}
+	//Setting direction of wheels
+		digitalWrite(Motor1Pin1, LOW);
+		digitalWrite(Motor1Pin2, HIGH);
+		digitalWrite(Motor2Pin1, LOW);
+		digitalWrite(Motor2Pin2, HIGH);
+		digitalWrite(Motor3Pin1, LOW);
+		digitalWrite(Motor3Pin2, HIGH);
+		digitalWrite(Motor4Pin1, LOW);
+		digitalWrite(Motor4Pin2, HIGH);
 
-		printf("Stop\n");
-		digitalWrite(MotorEnable, LOW);
-		for(i=0;i<3;i++){
-			delay(1000);
-		}
+		startAndStopPulse();
+
+
 	}
 	return 0;
+}
+
+
+void startAndStopPulse(){
+
+for (intensity = 0; intensity < 101; intensity++)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (10) ;
+		}
+
+
+		
+		delay(3000);
+		
+		//Slow the motors down to a stop
+		for (intensity = 100; intensity >= 0; intensity--)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (10);
+		}
+		delay(3000);
+
 }
