@@ -239,6 +239,8 @@ void moveBackward(){
 }
 
 void turnRight(){
+    int intensity;
+
     initMotor1F();
     initMotor4F();
      for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
@@ -250,6 +252,7 @@ void turnRight(){
 }
 
 void turnLeft(){
+    int intensity;
     initMotor2F();
     initMotor3F();
     for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
