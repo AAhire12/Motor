@@ -25,8 +25,8 @@
 #define Motor3Pin2		13 //21
 #define Motor3Enable	12 //19
 
-#define Motor4Pin1		11 //26
-#define Motor4Pin2		10 //24
+#define Motor4Pin1		10 //26
+#define Motor4Pin2		11 //24
 #define Motor4Enable	26 //32
 
 #define MaxSpeed        40
