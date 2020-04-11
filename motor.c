@@ -78,6 +78,8 @@ void interruptHandler(){
 }
 
 int main(void){
+    signal(SIGINT,intHandler);
+
 	int i;
 	if(wiringPiSetup() == -1){ //when initialize wiring failed, print messageto screen
 		printf("setup wiringPi failed !");
@@ -93,12 +95,44 @@ int main(void){
 	softPwmCreate(Motor4Enable,MinSpeed,MaxSpeed);
 
     //Loop for function calls on motor
-	while(1){
-        
-        initMotorsF();
-        moveForward();
+    printf("Testing motor 1\n");
+    initMotor1F();
+    softPwmWrite(Motor1Enable,40);
 
-	}
+    delay(3000);
+
+    printf("Testing motor 2\n");
+    initMotor2F();
+    softPwmWrite(Motor2Enable,40);
+
+
+    delay(3000);
+
+    printf("Testing motor 3\n");
+
+    initMotor3F();
+    softPwmWrite(Motor3Enable,40);
+
+
+    delay(3000);
+
+
+
+    printf("Testing motor 4\n");
+
+    initMotor4F();
+    softPwmWrite(Motor4Enable,40);
+
+
+    delay(3000);
+
+
+	// while(1){
+        
+    //     initMotorsF();
+    //     moveForward();
+
+	// }
 	return 0;
 }
 
