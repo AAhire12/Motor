@@ -101,6 +101,8 @@ int main(void){
 
     delay(3000);
 
+    softPwmWrite(Motor1Enable,0);
+
     printf("Testing motor 2\n");
     initMotor2F();
     softPwmWrite(Motor2Enable,40);
@@ -108,6 +110,8 @@ int main(void){
 
     delay(3000);
 
+    softPwmWrite(Motor2Enable,0);
+    
     printf("Testing motor 3\n");
 
     initMotor3F();
@@ -115,7 +119,7 @@ int main(void){
 
 
     delay(3000);
-
+    softPwmWrite(Motor3Enable,0);
 
 
     printf("Testing motor 4\n");
@@ -125,6 +129,8 @@ int main(void){
 
 
     delay(3000);
+
+    softPwmWrite(Motor4Enable,0);
 
 
 	// while(1){
