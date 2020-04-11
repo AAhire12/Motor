@@ -133,6 +133,10 @@ int main(void){
     softPwmWrite(Motor4Enable,0);
 
 
+    brake();
+
+    resetPins();
+
 	// while(1){
         
     //     initMotorsF();
