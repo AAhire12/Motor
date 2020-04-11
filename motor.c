@@ -97,7 +97,8 @@ int main(void){
     //Loop for function calls on motor
     
     // initMotorsB();
-    moveForward();
+    // moveForward();
+    turnLeft();
 
     delay(3000);
 
@@ -105,7 +106,7 @@ int main(void){
 
     delay(3000);
     
-    moveBackward();
+    turnRight();
 
 
 	while(1){ 
