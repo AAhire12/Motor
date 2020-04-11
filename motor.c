@@ -67,7 +67,7 @@ void stop();
 //interrupt handler
 void interruptHandler(){
     printf("The interrupt handler was called. Its time to cleanup.\n");
-    printf("Slowing down the motors...\n")
+    printf("Slowing down the motors...\n");
     brake();
 
     printf("Resetting the pins to input\n");
@@ -194,7 +194,7 @@ void brake(){
 
 }
 
-void brake(){
+void stop(){
     //TO DO if needed
 }
 
