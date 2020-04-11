@@ -180,3 +180,47 @@ for (intensity = 0; intensity < 50; intensity++)
 		delay(3000);
 
 }
+
+
+
+// printf("Testing motor 1\n");
+//     initMotor1F();
+//     softPwmWrite(Motor1Enable,40);
+
+//     delay(3000);
+
+//     softPwmWrite(Motor1Enable,0);
+
+//     printf("Testing motor 2\n");
+//     initMotor2F();
+//     softPwmWrite(Motor2Enable,40);
+
+
+//     delay(3000);
+
+//     softPwmWrite(Motor2Enable,0);
+    
+//     printf("Testing motor 3\n");
+
+//     initMotor3F();
+//     softPwmWrite(Motor3Enable,40);
+
+
+//     delay(3000);
+//     softPwmWrite(Motor3Enable,0);
+
+
+//     printf("Testing motor 4\n");
+
+//     initMotor4F();
+//     softPwmWrite(Motor4Enable,40);
+
+
+//     delay(3000);
+
+//     softPwmWrite(Motor4Enable,0);
+
+
+//     brake();
+
+//     resetPins();
