@@ -96,8 +96,8 @@ int main(void){
 
     //Loop for function calls on motor
     
-    initMotorsF();
-    moveForward();
+    initMotorsB();
+    moveBackward();
 
 	while(1){ 
 
@@ -216,7 +216,7 @@ void moveForward(){
     accelerate();
 }
 
-void moveBackwards(){
+void moveBackward(){
     printf("Anti-clockwise\n");
 
     //Initiliaze motors to move backwards
