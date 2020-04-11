@@ -17,8 +17,8 @@
 #define Motor1Pin2		3 //15
 #define Motor1Enable	0
 
-#define Motor2Pin1		5 //18  
-#define Motor2Pin2		4 //16  
+#define Motor2Pin1		4 //18  
+#define Motor2Pin2		5 //16  
 #define Motor2Enable	6 //22
 
 #define Motor3Pin1		14  //23
