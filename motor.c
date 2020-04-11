@@ -29,7 +29,7 @@
 #define Motor4Pin2		11 //24
 #define Motor4Enable	26 //32
 
-#define MaxSpeed        25
+#define MaxSpeed        3
 #define MinSpeed        0
 
 //Initialize Motor Pins
