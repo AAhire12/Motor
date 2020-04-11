@@ -241,13 +241,23 @@ void moveBackward(){
 void turnRight(){
     initMotor1F();
     initMotor4F();
-    accelerate();
+     for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
+		{
+		  softPwmWrite (Motor1Enable, intensity);
+		  softPwmWrite (Motor4Enable, intensity);
+		  delay (50) ;
+		}
 }
 
 void turnLeft(){
     initMotor2F();
     initMotor3F();
-    accelerate();
+    for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
+		{
+		  softPwmWrite (Motor2Enable, intensity);
+		  softPwmWrite (Motor3Enable, intensity);
+		  delay (50) ;
+		}
 }
 
 /**
