@@ -237,8 +237,8 @@ void moveBackward(){
 }
 
 void turnRight(){
-    initMotor2B();
-    initMotor3B();
+    initMotor1F();
+    initMotor4F();
     accelerate();
 }
 
