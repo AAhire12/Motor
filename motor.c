@@ -13,21 +13,21 @@
 #include <signal.h>
 #include <softPwm.h>
 
-#define Motor1Pin1		2
-#define Motor1Pin2		3
+#define Motor1Pin1		2 //13
+#define Motor1Pin2		3 //15
 #define Motor1Enable	0
 
-#define Motor2Pin1		4
-#define Motor2Pin2		5
-#define Motor2Enable	6
+#define Motor2Pin1		5 //18  
+#define Motor2Pin2		4 //16  
+#define Motor2Enable	6 //22
 
-#define Motor3Pin1		2
-#define Motor3Pin2		3
-#define Motor3Enable	26
+#define Motor3Pin1		14  //23
+#define Motor3Pin2		13 //21
+#define Motor3Enable	12 //19
 
-#define Motor4Pin1		13
-#define Motor4Pin2		14
-#define Motor4Enable	12
+#define Motor4Pin1		11 //26
+#define Motor4Pin2		10 //24
+#define Motor4Enable	26 //32
 
 #define MaxSpeed        40
 #define MinSpeed        0
