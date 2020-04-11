@@ -92,6 +92,9 @@ int main(void){
 
     //Loop for function calls on motor
 	while(1){
+        initMotors();
+        initMotorsF();
+        moveForward();
 
 	}
 	return 0;
