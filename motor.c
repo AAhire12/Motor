@@ -73,7 +73,7 @@ void interruptHandler(){
     printf("Resetting the pins to input\n");
     resetPins();
 
-    printf("Pins cleaned..Making a clean exit!");
+    printf("Pins cleaned..Making a clean exit!\n");
     exit(0);
 }
 
@@ -236,11 +236,15 @@ void moveBackward(){
 }
 
 void turnRight(){
-    //TODO
+    initMotor2B();
+    initMotor3B();
+    accelerate();
 }
 
 void turnLeft(){
-    //TODO
+    initMotor2F();
+    initMotor3F();
+    accelerate();
 }
 
 /**
