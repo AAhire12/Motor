@@ -96,7 +96,7 @@ int main(void){
 
     //Loop for function calls on motor
     
-    initMotorsB();
+    // initMotorsB();
     moveBackward();
 
 	while(1){ 
