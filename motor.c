@@ -78,7 +78,7 @@ void interruptHandler(){
 }
 
 int main(void){
-    signal(SIGINT,intHandler);
+    signal(SIGINT,interruptHandler);
 
 	int i;
 	if(wiringPiSetup() == -1){ //when initialize wiring failed, print messageto screen
