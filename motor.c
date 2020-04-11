@@ -29,7 +29,7 @@
 #define Motor4Pin2		14
 #define Motor4Enable	12
 
-#define MaxSpeed        100
+#define MaxSpeed        40
 #define MinSpeed        0
 
 //Initialize Motor Pins
@@ -83,6 +83,8 @@ int main(void){
 		printf("setup wiringPi failed !");
 		return 1; 
 	}
+
+    initMotors();
 	
     //Settings for pulse width modulation
     softPwmCreate(Motor1Enable,MinSpeed,MaxSpeed);	
@@ -92,7 +94,7 @@ int main(void){
 
     //Loop for function calls on motor
 	while(1){
-        initMotors();
+        
         initMotorsF();
         moveForward();
 
