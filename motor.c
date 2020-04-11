@@ -29,7 +29,7 @@
 #define Motor4Pin2		11 //24
 #define Motor4Enable	26 //32
 
-#define MaxSpeed        40
+#define MaxSpeed        25
 #define MinSpeed        0
 
 //Initialize Motor Pins
@@ -96,12 +96,12 @@ int main(void){
 
     //Loop for function calls on motor
     
-	// while(1){
-        
-        initMotorsF();
-        moveForward();
+    initMotorsF();
+    moveForward();
 
-	// }
+	while(1){ 
+
+	}
 	return 0;
 }
 
