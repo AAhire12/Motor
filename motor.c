@@ -106,6 +106,8 @@ int main(void){
 
     delay(3000);
     
+    resetPins();
+
     turnRight();
 
 
