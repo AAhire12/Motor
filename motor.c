@@ -103,7 +103,7 @@ int main(void){
 
     brake();
 
-    delay(3000)
+    delay(3000);
     
     moveBackward();
 
