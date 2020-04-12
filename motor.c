@@ -98,16 +98,21 @@ int main(void){
     
     // initMotorsB();
     // moveForward();
-    turnLeft();
+    // turnLeft();
 
-    delay(3000);
+    // delay(3000);
 
-    brake();
+    // brake();
 
-    delay(3000);
+    // delay(3000);
     
 
-    turnRight();
+    // turnRight();
+
+
+    initMotor1F();
+    softPwmWrite (Motor1Enable, 3);
+
 
 
 	while(1){ 
