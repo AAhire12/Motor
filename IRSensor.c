@@ -45,8 +45,12 @@ int main(int argc, char const *argv[])
     t = clock() - t; 
     double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds 
 
+    printf("The time taken for the function is %f\nThe PI value is %f\nThe value of n is %lu\nThe value of N is %d\n",time_taken,PI,n,N);
+
     
-    long angularSpeed= (2* PI * n )/(N * time_taken);
+
+
+    double angularSpeed= (2* PI * n )/(N * time_taken);
 
 
     printf("The angular speed is %lu\n",angularSpeed);
