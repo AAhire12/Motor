@@ -16,9 +16,7 @@ int main(int argc, char const *argv[])
 	}
 
 
-    struct timespec startTime;
-    struct timespec endTime;
-    clock_gettime(CLOCK_REALTIME, &startTime);
+   
 
     //Number of pulses
     long n=0;
@@ -30,6 +28,10 @@ int main(int argc, char const *argv[])
 
     pinMode(IR_SENSOR,INPUT);
     int count=0;
+
+    clock_t t; 
+    t = clock(); 
+
     while(count<5000){
         // printf("This is the input from the IR Sensor %d\n",digitalRead(IR_SENSOR));
         if(digitalRead(IR_SENSOR)==1){
@@ -38,23 +40,13 @@ int main(int argc, char const *argv[])
     count++;
     }
 
-    /**
-     * Calculates the time taken to execute the program. Should be
-     * */
-    clock_gettime(CLOCK_REALTIME, &endTime);
-    time_t sec = endTime.tv_sec - startTime.tv_sec;
-    long n_sec = endTime.tv_nsec - startTime.tv_nsec;
-
-    if (endTime.tv_nsec < startTime.tv_nsec)
-        {
-        --sec;
-        n_sec = n_sec + 1000000000L;
-        }
-
-    printf("Total Time was %ld.%09ld seconds\n", sec, n_sec);
+    
+    fun(); 
+    t = clock() - t; 
+    double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds 
 
     
-    long angularSpeed= (2* PI * n )/(N * sec);
+    long angularSpeed= (2* PI * n )/(N * time_taken);
 
 
     printf("The angular speed is %lu\n",angularSpeed);
