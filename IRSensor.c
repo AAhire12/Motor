@@ -7,6 +7,12 @@
 
 int main(int argc, char const *argv[])
 {   
+    if(wiringPiSetup() == -1){ //when initialize wiring failed, print messageto screen
+		printf("setup wiringPi failed !");
+		return 1; 
+	}
+
+
     pinMode(IR_SENSOR,INPUT);
 
     while(1){
