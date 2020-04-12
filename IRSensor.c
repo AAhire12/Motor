@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 
     while(1){
 
-        printf("This is the input from the IR Sensor %d",digitalRead(IR_SENSOR));
+        printf("This is the input from the IR Sensor %d\n",digitalRead(IR_SENSOR));
 
     }
 
