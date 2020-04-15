@@ -1,7 +1,7 @@
 /*************************************************************** 
  * Class:  CSC-615-01 Spring2020
- * Name: Ibraheem Chaudry
- * Student ID: 917227459 
+ * Name: Ankush Ahire
+ * Student ID: 920107107 
  * Project:Assignment 3 - Motors & Motor Shield 
  * File: motor.c
  * Description: Motor control functions for raspberryPi motorshield model
