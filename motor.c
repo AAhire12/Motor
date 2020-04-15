@@ -29,7 +29,9 @@
 #define Motor4Pin2		11 //24
 #define Motor4Enable	26 //32
 
-#define MaxSpeed        3
+#define TopSpeed        20
+
+#define MaxSpeed        100
 #define MinSpeed        0
 
 //Initialize Motor Pins
@@ -94,30 +96,28 @@ int main(void){
 	softPwmCreate(Motor3Enable,MinSpeed,MaxSpeed);
 	softPwmCreate(Motor4Enable,MinSpeed,MaxSpeed);
 
-    //Loop for function calls on motor
     
-    // initMotorsB();
-    // moveForward();
-    // turnLeft();
+    //Go forward
+    initMotorsF();
 
-    // delay(3000);
+    accelerate();
 
-    // brake();
+    delay(5000);
 
-    // delay(3000);
-    
+    brake();
 
-    // turnRight();
+    delay(3000);
+
+    //Go backward
+    initMotorsB();
+
+    accelerate();
+
+    delay(5000);
+
+    brake();
 
 
-    initMotor1F();
-    softPwmWrite (Motor1Enable, 3);
-
-
-
-	while(1){ 
-
-	}
 	return 0;
 }
 
@@ -188,7 +188,7 @@ void accelerate(){
 	int intensity;
 
     //Slowly accelerate the motors
-    for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
+    for (intensity = MinSpeed; intensity < TopSpeed; intensity++)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor2Enable, intensity);
@@ -207,7 +207,7 @@ void brake(){
     int intensity;
 
     //Slow the motors down to a stop
-    for (intensity = MaxSpeed; intensity >= MinSpeed; intensity--)
+    for (intensity = TopSpeed; intensity >= MinSpeed; intensity--)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor2Enable, intensity);
@@ -247,7 +247,7 @@ void turnRight(){
 
     initMotor1F();
     initMotor4F();
-     for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
+     for (intensity = MinSpeed; intensity < TopSpeed; intensity++)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
 		  softPwmWrite (Motor4Enable, intensity);
@@ -259,7 +259,7 @@ void turnLeft(){
     int intensity;
     initMotor2F();
     initMotor3F();
-    for (intensity = MinSpeed; intensity < MaxSpeed; intensity++)
+    for (intensity = MinSpeed; intensity < TopSpeed; intensity++)
 		{
 		  softPwmWrite (Motor2Enable, intensity);
 		  softPwmWrite (Motor3Enable, intensity);
