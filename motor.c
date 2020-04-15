@@ -1,6 +1,6 @@
 /*************************************************************** 
  * Class:  CSC-615-01 Spring2020
- * Name: Ankush Ahire
+ * Name: Ibraheem Chaudry
  * Student ID: 920107107 
  * Project:Assignment 3 - Motors & Motor Shield 
  * File: motor.c
@@ -29,34 +29,34 @@
 #define Motor4Pin2		11 //24
 #define Motor4Enable	26 //32
 
-#define TopSpeed        20
+#define TopSpeed        50
 
 #define MaxSpeed        100
 #define MinSpeed        0
 
 //Initialize Motor Pins
-void initMotors();
+void initializeMotors();
 
 //To reset pins on program exit
 void resetPins();
 
 //Inialize individual motors to move forward
-void initMotor1F();
-void initMotor2F();
-void initMotor3F();
-void initMotor4F();
+void initializeMotor1F();
+void initializeMotor2F();
+void initializeMotor3F();
+void initializeMotor4F();
 
 //Inialize individual motors to move backward
-void initMotor1B();
-void initMotor2B();
-void initMotor3B();
-void initMotor4B();
+void initializeMotor1B();
+void initializeMotor2B();
+void initializeMotor3B();
+void initializeMotor4B();
 
 //Initalize all motors to move forward
-void initMotorsF();
+void initializeMotorsF();
 
 //Initalize all motors to move backward
-void initMotorsB();
+void initializeMotorsB();
 
 void accelerate();
 void brake();
@@ -88,7 +88,7 @@ int main(void){
 		return 1; 
 	}
 
-    initMotors();
+    initializeMotors();
 	
     //Settings for pulse width modulation
     softPwmCreate(Motor1Enable,MinSpeed,MaxSpeed);	
@@ -98,7 +98,7 @@ int main(void){
 
     
     //Go forward
-    initMotorsF();
+    initializeMotorsF();
 
     accelerate();
 
@@ -109,7 +109,7 @@ int main(void){
     delay(3000);
 
     //Go backward
-    initMotorsB();
+    initializeMotorsB();
 
     accelerate();
 
@@ -121,7 +121,7 @@ int main(void){
 	return 0;
 }
 
-void initMotors(){
+void initializeMotors(){
     //Initializing all motor to output  
 	pinMode(Motor1Pin1, OUTPUT);
 	pinMode(Motor1Pin2, OUTPUT);
@@ -162,21 +162,21 @@ void resetPins(){
 /**
  *Initialize motor pins to set DC motors to move car forwards 
  */
-void initMotorsF(){
-   initMotor1F();
-   initMotor2F();
-   initMotor3F();
-   initMotor4F();
+void initializeMotorsF(){
+   initializeMotor1F();
+   initializeMotor2F();
+   initializeMotor3F();
+   initializeMotor4F();
 }
 
 /**
  *Initialize motor pins to set DC motors to move car backwards 
  */
-void initMotorsB(){
-    initMotor1B();
-    initMotor2B();
-    initMotor3B();
-    initMotor4B();
+void initializeMotorsB(){
+    initializeMotor1B();
+    initializeMotor2B();
+    initializeMotor3B();
+    initializeMotor4B();
 }
 
 /**
@@ -226,7 +226,7 @@ void moveForward(){
     printf("Clockwise\n");
    
     //Initiliaze motors to move forwards
-    initMotorsF();
+    initializeMotorsF();
 
     //Accelerate
     accelerate();
@@ -236,7 +236,7 @@ void moveBackward(){
     printf("Anti-clockwise\n");
 
     //Initiliaze motors to move backwards
-    initMotorsB();
+    initializeMotorsB();
 
     //Accelerate
     accelerate();
@@ -245,8 +245,8 @@ void moveBackward(){
 void turnRight(){
     int intensity;
 
-    initMotor1F();
-    initMotor4F();
+    initializeMotor1F();
+    initializeMotor4F();
      for (intensity = MinSpeed; intensity < TopSpeed; intensity++)
 		{
 		  softPwmWrite (Motor1Enable, intensity);
@@ -257,8 +257,8 @@ void turnRight(){
 
 void turnLeft(){
     int intensity;
-    initMotor2F();
-    initMotor3F();
+    initializeMotor2F();
+    initializeMotor3F();
     for (intensity = MinSpeed; intensity < TopSpeed; intensity++)
 		{
 		  softPwmWrite (Motor2Enable, intensity);
@@ -270,21 +270,21 @@ void turnLeft(){
 /**
  * Functions to initialize each separate motor to run in the forward direction
  */
-void initMotor1F(){
+void initializeMotor1F(){
     digitalWrite(Motor1Pin1, HIGH);
     digitalWrite(Motor1Pin2, LOW);  
 }
 
-void initMotor2F(){
+void initializeMotor2F(){
     digitalWrite(Motor2Pin1, HIGH);
     digitalWrite(Motor2Pin2, LOW);
 }
-void initMotor3F(){
+void initializeMotor3F(){
     digitalWrite(Motor3Pin1, HIGH);
     digitalWrite(Motor3Pin2, LOW);
 }
 
-void initMotor4F(){
+void initializeMotor4F(){
     digitalWrite(Motor4Pin1, HIGH);
     digitalWrite(Motor4Pin2, LOW);
 }
@@ -293,22 +293,22 @@ void initMotor4F(){
 /**
  * Functions to initialize each separate motor to run in the backwards direction
  */
-void initMotor1B(){
+void initializeMotor1B(){
     digitalWrite(Motor1Pin1, LOW);
     digitalWrite(Motor1Pin2, HIGH);    
 }
 
-void initMotor2B(){
+void initializeMotor2B(){
     digitalWrite(Motor2Pin1, LOW);
     digitalWrite(Motor2Pin2, HIGH);
 }
 
-void initMotor3B(){
+void initializeMotor3B(){
     digitalWrite(Motor3Pin1, LOW);
     digitalWrite(Motor3Pin2, HIGH);
 }
 
-void initMotor4B(){
+void initializeMotor4B(){
     digitalWrite(Motor4Pin1, LOW);
     digitalWrite(Motor4Pin2, HIGH);
 }
